@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-orangex: #D97757;
+  --color-greyx: #665d55;
+  --color-whitex: #fbfaf8;
+  --color-ink: #1d1916;
+  --color-card-dark: #26221f;
+  --font-sans: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Libre Baskerville", serif;
+}
+
+@layer base {
+  body {
+    @apply bg-whitex text-ink min-h-screen font-sans antialiased transition-colors duration-300;
+  }
+
+  body.dark {
+    @apply bg-ink text-whitex;
+  }
+}
+
+@layer components {
+  .card-anthropic {
+    @apply bg-white border border-ink/5 rounded-2xl shadow-[0_4px_20px_rgba(29,25,22,0.03)] transition-all duration-300;
+  }
+  
+  .dark .card-anthropic {
+    @apply bg-card-dark border-whitex/5 shadow-[0_4px_20px_rgba(0,0,0,0.2)];
+  }
+  
+  .btn-anthropic {
+    @apply px-6 py-3 bg-ink text-whitex font-medium rounded-full transition-all duration-200
+           hover:bg-ink/90 hover:scale-[1.02] active:scale-95;
+  }
+
+  .dark .btn-anthropic {
+    @apply bg-whitex text-ink hover:bg-whitex/90;
+  }
+
+  .btn-anthropic-outline {
+    @apply px-6 py-3 bg-transparent border border-ink/10 text-ink font-medium rounded-full transition-all duration-200
+           hover:bg-ink/5 hover:border-ink/20 hover:scale-[1.02] active:scale-95;
+  }
+
+  .dark .btn-anthropic-outline {
+    @apply border-whitex/10 text-whitex hover:bg-whitex/5 hover:border-whitex/20;
+  }
+
+  .btn-anthropic-accent {
+    @apply px-6 py-3 bg-orangex text-white font-medium rounded-full transition-all duration-200
+           hover:bg-orangex/90 hover:scale-[1.02] active:scale-95;
+  }
+
+  .input-anthropic {
+    @apply w-full h-64 p-6 bg-white border border-ink/10 rounded-2xl text-ink font-mono focus:border-orangex/50 focus:ring-1 focus:ring-orangex/20 focus:outline-none transition-all duration-200;
+    box-shadow: inset 0 2px 4px rgba(29,25,22,0.02);
+  }
+
+  .dark .input-anthropic {
+    @apply bg-card-dark border-whitex/10 text-whitex;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+  }
+
+  .nav-pill-anthropic {
+    @apply flex items-center gap-2 px-4 py-2 rounded-full transition-all border;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-whitex;
+}
+
+.dark ::-webkit-scrollbar-track {
+  @apply bg-ink;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-ink/10 rounded-full hover:bg-ink/20;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  @apply bg-whitex/10 hover:bg-whitex/20;
+}

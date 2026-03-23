@@ -1,0 +1,5 @@
+{
+  "name": "Code Json - Online Json Tool",
+  "description": "A professional-grade developer suite for JSON formatting, validation, repair, conversion, and exploration. Features built-in support for TypeScript, YAML, CSV, and dynamic JSONPath queries.",
+  "requestFramePermissions": []
+}
